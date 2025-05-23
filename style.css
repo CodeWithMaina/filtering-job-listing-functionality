@@ -5,12 +5,14 @@
 main{
     display: flex;
     flex-direction: column;
+    background-color: hsl(180, 52%, 96%);
+
 }
 .header {
     height: 100px;
     background-image: url("./images/bg-header-desktop.svg");
     width: 100%;
-    background-color: aqua;
+    background-color: hsl(180, 52%, 96%);
     object-fit: cover;
 }
 .listings{
@@ -18,12 +20,13 @@ main{
     flex-direction: column;
     align-items: center;
     padding-top: 3rem;
+    background-color: hsl(180, 52%, 96%);
+
 }
 /* Filter Container */
 .filter-container {
   margin: 1rem auto;
   padding: 1rem;
-  background-color: #f0fafb;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -32,6 +35,7 @@ main{
   font-family: 'Segoe UI', sans-serif;
   position: relative;
   width: 80%;
+  background-color: white;
 }
 
 /* Toggle Button */
