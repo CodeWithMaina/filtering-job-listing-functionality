@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+.header {
+    height: 100px;
+    background-image: url("./images/bg-header-desktop.svg");
+    width: 100%;
+    background-color: aqua;
+    object-fit: cover;
+}
+.listings{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+}
+/* Filter Container */
+.filter-container {
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: #f0fafb;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  width: 80%;
+}
+
+/* Toggle Button */
+.filter-toggle-btn {
+  margin-bottom: 0.5rem;
+  padding: 0.4rem 1rem;
+  border: none;
+  background-color: #5ba4a4;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Filter Box */
+.filter-box {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+/* Input */
+.filter-input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  flex-grow: 1;
+  width: 90%;
+}
+
+/* Tag pills */
+.tags-container {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.filter-tag {
+  background-color: #eff6f6;
+  color: #5ba4a4;
+  font-weight: bold;
+  padding: 0.4rem 0.75rem;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.filter-tag:hover {
+  background-color: #d8f3f2;
+}
+
+/* X button inside tags */
+.remove-tag-btn {
+  background: #5ba4a4;
+  border: none;
+  color: white;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  line-height: 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.remove-tag-btn:hover {
+  background-color: #2c3a3a;
+}
+
+/* Clear button */
+.clear-btn {
+  background: none;
+  border: none;
+  color: #5ba4a4;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: auto;
+  font-size: 0.9rem;
+}
+
+.clear-btn:hover {
+  color: #2c3a3a;
+}
+
+/* Job card Styles */
+.job-card {
+  display: flex;
+  flex-direction: row;
+  background: white;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid transparent;
+  transition: border-color 0.3s ease;
+  width: 80%;
+  gap: 5rem;
+}
+
+.job-card.featured {
+  border-left: 4px solid #26a69a;
+}
+
+.job-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.company-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.job-info {
+  flex: 1;
+}
+
+.company-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.company-name {
+  font-weight: bold;
+  color: #2d2d2d;
+}
+/* badges for new and featured */
+.tag {
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 15px;
+  background-color: #b2dfdb;
+  color: #004d40;
+}
+
+.tag.new {
+  background-color: #26c6da;
+  color: white;
+}
+
+.tag.featured {
+  background-color: #004d40;
+  color: white;
+}
+
+/* Job position title */
+.position {
+  font-size: 1.1rem;
+  color: #263238;
+  margin: 0.2rem 0 0.5rem;
+}
+
+/* (posted, contract, location) */
+.job-meta {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  color: #607d8b;
+  font-size: 0.85rem;
+}
+
+/* Job tags below the card */
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+/* Individual skill/tech tags */
+.job-tags .tag {
+  background-color: #e0f2f1;
+  color: #00796b;
+  font-weight: 500;
+  font-size: 0.85rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+  height: fit-content;
+}
+
+.job-tags .tag:hover {
+  background-color: #b2dfdb;
+}
+
+/* Responsiveness for small and medium sized screens */
+@media(max-width: 768px ){
+    .job-card {
+  display: flex;
+  flex-direction: column;
+}
+.job-tags {
+    border-top: 1px solid rgb(207, 202, 202);
+  margin-top: 0;
+  padding-top: 10px;
+}
+}
