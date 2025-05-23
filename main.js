@@ -60,9 +60,8 @@ function createListingCard(listing) {
   return div;
 }
 
-// === Filter UI Setup ===
-
-// Elements
+// filtering functionality setup
+// Creating elements
 const filterToggleBtn = document.createElement("button");
 filterToggleBtn.textContent = "Toggle Filter";
 filterToggleBtn.classList.add("filter-toggle-btn");
@@ -83,7 +82,6 @@ const clearBtn = document.createElement("button");
 clearBtn.textContent = "Clear";
 clearBtn.classList.add("clear-btn");
 
-// Compose UI
 filterBox.appendChild(input);
 filterBox.appendChild(tagsContainer);
 filterBox.appendChild(clearBtn);
@@ -138,13 +136,28 @@ function renderTags() {
   });
 }
 
-// Filter listings based on all active tags (AND logic)
+// Filter listings based on all active tags searching through all relevant listing fields
 function filterListings() {
   listingContainer.innerHTML = "";
 
   const filtered = listingData.filter((listing) => {
-    const tags = [listing.role, listing.level, ...listing.languages, ...listing.tools];
-    return activeTags.every(tag => tags.includes(tag));
+    const searchableFields = [
+      listing.company,
+      listing.position,
+      listing.role,
+      listing.level,
+      listing.postedAt,
+      listing.contract,
+      listing.location,
+      ...listing.languages,
+      ...listing.tools
+    ].map(field => field.toLowerCase());
+
+    // For each active tag, check if it is found in ANY of the searchable fields
+    return activeTags.every(tag => {
+      const lowerTag = tag.toLowerCase();
+      return searchableFields.some(field => field.includes(lowerTag));
+    });
   });
 
   if (filtered.length === 0) {
@@ -158,5 +171,4 @@ function filterListings() {
   });
 }
 
-// Initialize on DOM ready
 document.addEventListener("DOMContentLoaded", fetchListings);
